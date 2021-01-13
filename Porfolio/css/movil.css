@@ -32,9 +32,7 @@ header nav{
 
 header nav a{
     text-decoration: none;
-
 }
-
 main{
     box-sizing: content-box;
     height: 300px;
