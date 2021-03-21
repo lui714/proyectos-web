@@ -13,11 +13,11 @@ $app->group('/api', function(RouteCollectorProxy $group){
     #  $group->get('/libros/{id}', 'App\Controllers\LibrosController:show');
 });
 
-/*//FUNCION DE PRUEBA /index.php/libros
+//FUNCION DE PRUEBA /index.php/libros
 $app->get("/libros", function(Request $request, Response $response, $args) {
     $response->getBody()->write("Hello, I'm your libros.php file");
     return $response;
-});*/
+});
 
 
 
