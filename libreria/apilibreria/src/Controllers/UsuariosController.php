@@ -7,6 +7,7 @@
     
         public function new(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
+           
             $uid = (int)$parametros['usuarioid'];
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
@@ -21,9 +22,24 @@
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
         }
+
+        public function delete(Request $request, Response $response, $args) {
+            $parametros = $request->getQueryParams();
+            $id = (int)$parametros['usuarioid'];
+          
+            $valoresParametros = array ($id);
+            $usuarios = UsuariosModel::delete($valoresParametros);
+            $usuariosJson = json_encode($usuarios);
+            $response->getBody()->write($usuariosJson);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(200); 
+          }
        
         public function getAll($request, $response, $args){
-            $response->getBody()->write("Listado de Usuarios");
+            $usuarios = UsuariosModel::getAll();
+            $usuariosJson = json_encode($usuarios);
+            $response->getBody()->write($usuariosJson);
             return $response
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);

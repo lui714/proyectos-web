@@ -25,10 +25,19 @@
 
         public function getFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
-            var_dump($parametros);
+
             $precio = $parametros['precio'];
-            $nombre = $parametros['nombre_libro'];
-            echo $nombre. " " .$precio;
+            $editorial = $parametros['editorial'];
+
+            var_dump($precio);
+
+            $valoresParametros = array ($precio, $editorial);
+            $libros = LibrosModel::getFilter($valoresParametros);
+            $librosJson = json_encode($libros);
+            $response->getBody()->write($librosJson);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(200); 
         }
         
         public function getAll($request, $response, $args){
