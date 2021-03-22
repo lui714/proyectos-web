@@ -14,6 +14,7 @@
             return $response
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
+        }
         
         public function new($request, $response, $args){
             $response->getBody()->write("Insertar un nuevo Libro");
