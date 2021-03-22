@@ -15,6 +15,12 @@ class LibrosModel {
         $data = LibrosModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }
+    public static function getLibrosYCategorias(){
+        LibrosModel::conexionDB();
+        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid";
+        $data = LibrosModel::$DB->run($sql, []);
+        return $data->fetchAll();
+    }
 
     public static function getAll(){
         LibrosModel::conexionDB();
