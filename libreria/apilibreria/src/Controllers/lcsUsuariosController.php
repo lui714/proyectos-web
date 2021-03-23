@@ -5,7 +5,7 @@
     use App\Model\lcsUsuariosModel;
     class lcsUsuariosController {
 
-        public function update(Request  $request, Response $response, $args){
+        public function lcsupdate(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
 
             $usuarioid = (int)$parametros['usuarioid'];
@@ -15,7 +15,7 @@
             $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
             $valores = array($usuarioid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
-            $usuarios = lcsUsuariosModel::update($valores);
+            $usuarios = lcsUsuariosModel::lcsupdate($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response

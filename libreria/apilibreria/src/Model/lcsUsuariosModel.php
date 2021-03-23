@@ -26,7 +26,7 @@ class lcsUsuariosModel {
         return $data->fetchAll();
     }
 
-    public static function update($param){
+    public static function lcsupdate($param){
         lcsUsuariosModel::conexionDB();
         $sql = "UPDATE usuarios SET nombre = '$param[1]', apellidos = '$param[2]', ciudad = '$param[5]', direccion = '$param[3]', anioNac = '$param[4]'  where usuarioid = $param[0]";
         $data = lcsUsuariosModel::$DB->run($sql, $param);
