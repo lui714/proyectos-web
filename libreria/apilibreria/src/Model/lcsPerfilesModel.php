@@ -17,9 +17,9 @@ class lcsDetallePerfilesModel {
     }
 
     public static function getAll(){
-        lcsDetallePerfilesModel::conexionDB();
+        lcsPerfilesModel::conexionDB();
         $sql = "Select * from perfiles";
-        $data = lcsDetallePerfilesModel::$DB->run($sql, []);
+        $data = lcsPerfilesModel::$DB->run($sql, []);
         return $data->fetchAll();
     }
 
