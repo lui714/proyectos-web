@@ -4,7 +4,7 @@ use App\Config\DB;
 use Exception;
 
 
-class UsuariosModel {
+class lcsUsuariosModel {
     private static $table = 'usuarios';
     private static $DB; 
 
