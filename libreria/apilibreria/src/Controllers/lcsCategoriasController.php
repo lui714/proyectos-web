@@ -13,7 +13,7 @@
                 ->withStatus(200);
         }
        
-        public function lcsgetAll($request, $response, $args){
+        public function getAll($request, $response, $args){
             $categorias = lcsCategoriasModel::getALL();
             $categoriasJson = json_encode($categorias);
             $response->getBody()->write($categoriasJson);

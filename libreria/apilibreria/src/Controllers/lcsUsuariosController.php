@@ -2,7 +2,7 @@
     namespace App\Controllers;
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
-    use App\Model\UsuariosModel;
+    use App\Model\lcsUsuariosModel;
     class UsuariosController {
 
         public function update(Request  $request, Response $response, $args){
@@ -15,7 +15,7 @@
             $anionac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
             $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anionac);
-            $usuarios = UsuariosModel::update($valores);
+            $usuarios = lcsUsuariosModel::update($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response
@@ -33,7 +33,7 @@
             $anionac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
             $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anionac);
-            $usuarios = UsuariosModel::new($valores);
+            $usuarios = lcsUsuariosModel::new($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response
@@ -46,7 +46,7 @@
             $id = (int)$parametros['usuarioid'];
           
             $valoresParametros = array ($id);
-            $usuarios = UsuariosModel::delete($valoresParametros);
+            $usuarios = lcsUsuariosModel::delete($valoresParametros);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response
@@ -55,7 +55,7 @@
           }
        
         public function getAll($request, $response, $args){
-            $usuarios = UsuariosModel::getAll();
+            $usuarios = lcsUsuariosModel::getAll();
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response
