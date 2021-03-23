@@ -26,7 +26,7 @@
         public function lcsnew(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
            
-            $usuarioid = $parametros['usuarioid'];
+            $usuarioid = (int)$parametros['usuarioid'];
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
             $direccion = $parametros['direccion'];
