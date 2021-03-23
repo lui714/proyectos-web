@@ -33,7 +33,7 @@ class UsuariosModel {
         return "Usuario cambiado correctamente ";
     }
 
-    public static function new($param){
+    public static function lcsnew($param){
        try{
             lcsUsuariosModel::conexionDB();
             $sql = "insert into usuarios (usuarioid, nombre, apellidos, direccion, ciudad, anioNac) 

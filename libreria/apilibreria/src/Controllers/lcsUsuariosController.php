@@ -23,7 +23,7 @@
                 ->withStatus(200);
         }
     
-        public function new(Request  $request, Response $response, $args){
+        public function lcsnew(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
            
             $uid = (int)$parametros['usuarioid'];
