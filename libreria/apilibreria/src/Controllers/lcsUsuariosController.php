@@ -14,7 +14,7 @@
             $direccion = $parametros['direccion'];
             $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
-            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
+            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $anioNac, $ciudad);
             $usuarios = lcsUsuariosModel::lcsupdate($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
