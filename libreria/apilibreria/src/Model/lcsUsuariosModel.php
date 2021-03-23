@@ -28,7 +28,7 @@ class lcsUsuariosModel {
 
     public static function update($param){
         lcsUsuariosModel::conexionDB();
-        $sql = "UPDATE usuarios SET nombre = '$param[1]', apellidos = '$param[2]', ciudad = '$param[4]', direccion = '$param[3]', anioNac = $param[5]  where usuarioid = $param[0]";
+        $sql = "UPDATE usuarios SET nombre = '$param[1]', apellidos = '$param[2]', ciudad = '$param[5]', direccion = '$param[3]', anioNac = '$param[4]'  where usuarioid = $param[0]";
         $data = lcsUsuariosModel::$DB->run($sql, $param);
         return "Usuario cambiado correctamente ";
     }
@@ -36,7 +36,7 @@ class lcsUsuariosModel {
     public static function lcsnew($param){
        try{
             lcsUsuariosModel::conexionDB();
-            $sql = "insert into usuarios (usuarioid, nombre, apellidos, direccion, ciudad, anioNac) 
+            $sql = "insert into usuarios (usuarioid, nombre, apellidos, direccion, anioNac, ciudad) 
                     values (?, ?, ?, ?, ?, ?)";
             $data = lcsUsuariosModel::$DB->run($sql, $param);
             return "Usuario ". $param[1] . " insertado correctamente ";
