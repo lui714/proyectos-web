@@ -2,9 +2,9 @@
     namespace App\Controllers;
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
-    use App\Model\CategoriasModel;
+    use App\Model\lcsCategoriasModel;
 
-    class CategoriasController {
+    class lcsCategoriasController {
     
         public function new(Request  $request, Response $response, $args){
             $response->getBody()->write("Insertar una nueva Categoria");
@@ -14,7 +14,7 @@
         }
        
         public function getAll($request, $response, $args){
-            $categorias = CategoriasModel::getALL();
+            $categorias = lcsCategoriasModel::getALL();
             $categoriasJson = json_encode($categorias);
             $response->getBody()->write($categoriasJson);
             return $response

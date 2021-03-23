@@ -3,12 +3,12 @@
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
     //use App\Controllers\BaseController;
-    use App\Model\LibrosModel;    
+    use App\Model\lcsLibrosModel;    
 
-    class LibrosController {
+    class lcsLibrosController {
 
         public function getLibrosYCategorias($request, $response, $args){
-            $libros = LibrosModel::getLibrosYCategorias();
+            $libros = lcsLibrosModel::getLibrosYCategorias();
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response
@@ -32,7 +32,7 @@
             var_dump($precio);
 
             $valoresParametros = array ($precio, $editorial);
-            $libros = LibrosModel::getFilter($valoresParametros);
+            $libros = lcsLibrosModel::getFilter($valoresParametros);
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response
@@ -41,7 +41,7 @@
         }
         
         public function getAll($request, $response, $args){
-            $libros = LibrosModel::getAll();
+            $libros = lcsLibrosModel::getAll();
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response

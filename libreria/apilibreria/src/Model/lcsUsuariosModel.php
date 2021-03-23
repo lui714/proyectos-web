@@ -13,32 +13,32 @@ class UsuariosModel {
     }
 
     public static function delete($param){
-             UsuariosModel::conexionDB();
+             lcsUsuariosModel::conexionDB();
              $sql = "DELETE FROM usuarios WHERE usuarioid = ?";
-             $data = UsuariosModel::$DB->run($sql, $param);
+             $data = lcsUsuariosModel::$DB->run($sql, $param);
              return "Usuario ". $param[0] . " borrado correctamente ";
     }
 
     public static function getAll(){
-        UsuariosModel::conexionDB();
+        lcsUsuariosModel::conexionDB();
         $sql = "Select * from usuarios";
-        $data = UsuariosModel::$DB->run($sql, []);
+        $data = lcsUsuariosModel::$DB->run($sql, []);
         return $data->fetchAll();
     }
 
     public static function update($param){
-        UsuariosModel::conexionDB();
+        lcsUsuariosModel::conexionDB();
         $sql = "UPDATE usuarios SET nombre = '$param[1]', apellidos = '$param[2]', ciudad = '$param[4]', direccion = '$param[3]', anioNac = $param[5]  where usuarioid = $param[0]";
-        $data = UsuariosModel::$DB->run($sql, $param);
+        $data = lcsUsuariosModel::$DB->run($sql, $param);
         return "Usuario cambiado correctamente ";
     }
 
     public static function new($param){
        try{
-            UsuariosModel::conexionDB();
+            lcsUsuariosModel::conexionDB();
             $sql = "insert into usuarios (usuarioid, nombre, apellidos, direccion, ciudad, anioNac) 
                     values (?, ?, ?, ?, ?, ?)";
-            $data = UsuariosModel::$DB->run($sql, $param);
+            $data = lcsUsuariosModel::$DB->run($sql, $param);
             return "Usuario ". $param[1] . " insertado correctamente ";
        } catch(Exception $e){
           return $e->getMessage();
