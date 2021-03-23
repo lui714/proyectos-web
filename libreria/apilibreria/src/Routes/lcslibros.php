@@ -10,7 +10,7 @@ $app->group('/api', function(RouteCollectorProxy $group){
     $group->get('/libros', 'App\Controllers\lcsLibrosController:getAll');
     $group->post('/libros/lcsnew', 'App\Controllers\lcsLibrosController:lcsnew'); 
     $group->get('/libros/filter', 'App\Controllers\lcsLibrosController:getFilter');
-    $group->get('/libros/lcscategorias=multimedia&precio=35', 'App\Controllers\lcsLibrosController:lcsgetLibrosYCategorias');
+    $group->get('/libros/lcscategorias=programacion&precio=35', 'App\Controllers\lcsLibrosController:lcsgetLibrosYCategorias');
     $group->post('/libros/compras', 'App\Controllers\lcsLibrosController:lcsgetCompras');
 
     #  $group->get('/libros/{id}', 'App\Controllers\LibrosController:show');
