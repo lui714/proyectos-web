@@ -8,7 +8,7 @@
         public function lcsupdate(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
 
-            $usuarioid = (int)$parametros['usuarioid'];
+            $usuarioid = $parametros['usuarioid'];
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
             $direccion = $parametros['direccion'];
