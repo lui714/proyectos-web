@@ -26,13 +26,13 @@
         public function lcsnew(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
            
-            $uid = $parametros['usuarioid'];
+            $usuarioid = $parametros['usuarioid'];
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
             $direccion = $parametros['direccion'];
             $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
-            $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
+            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
             $usuarios = lcsUsuariosModel::new($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
