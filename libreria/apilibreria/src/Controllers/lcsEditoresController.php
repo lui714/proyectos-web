@@ -6,8 +6,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Model\lcsEditoresModel;
 
 class lcsEditoresController{
-    public function getEditoresYLibros($request, $response, $args){
-        $editores = lcsEditoresModel::getEditoresYLibros();
+    public function lcsgetEditoresYLibros($request, $response, $args){
+        $editores = lcsEditoresModel::lcsgetEditoresYLibros();
         $editoresJson = json_encode($editores);
         $response->getBody()->write($editoresJson);
         return $response
@@ -15,13 +15,13 @@ class lcsEditoresController{
             ->withStatus(200);
     }
 
-    public function new($request, $response, $args){
+    public function lcsnew($request, $response, $args){
         $response->getBody()->write("Insertar un nuevo editor");
         return $response
             ->withHeader('Content-Type', 'application/json')
             ->withStatus(200);
     }
-    public function getALL($request, $response, $args){
+    public function lcsgetALL($request, $response, $args){
         $editores = lcsEditoresModel::getALL();
         $editoresJson = json_encode($editores);
         $response->getBody()->write($editoresJson);

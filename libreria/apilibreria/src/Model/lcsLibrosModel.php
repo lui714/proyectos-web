@@ -11,10 +11,10 @@ class lcsLibrosModel {
     public static function conexionDB(){
         lcsLibrosModel::$DB = new DB();
     }
-    public static function getLibrosYCategorias(){
+    public static function lcsgetLibrosYCategorias(){
         lcsLibrosModel::conexionDB();
         $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid 
-        where l.precio > 35";
+        where c.nombre_categoria='programacion' and l.precio > 35";
         $data = lcsLibrosModel::$DB->run($sql, []);
         return $data->fetchAll();
     }
@@ -25,7 +25,7 @@ class lcsLibrosModel {
         return $data->fetchAll();
     }
 
-    public static function getAll(){
+    public static function lcsgetAll(){
         lcsLibrosModel::conexionDB();
         $sql = "Select * from libros";
         $data = lcsLibrosModel::$DB->run($sql, []);
