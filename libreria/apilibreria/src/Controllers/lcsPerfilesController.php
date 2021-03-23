@@ -34,7 +34,7 @@
        
         public function getAll($request, $response, $args){
             $perfiles = lcsPerfilesController::getALL();
-            $perfilesJson = json_encode($perifles);
+            $perfilesJson = json_encode($perfiles);
             $response->getBody()->write($perfilesJson);
             return $response
                 ->withHeader('Content-Type', 'application/json')
