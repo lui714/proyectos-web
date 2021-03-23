@@ -3,7 +3,7 @@
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
     use App\Model\lcsUsuariosModel;
-    class UsuariosController {
+    class lcsUsuariosController {
 
         public function update(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
