@@ -28,7 +28,7 @@ class lcsLibrosModel {
     public static function lcsgetLibrosYCategorias(){
         lcsLibrosModel::conexionDB();
         $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid 
-        where c.nombre_categoria='multimedia' and l.precio > 35";
+        where c.categoria_id='1' and l.precio > 35";
         $data = lcsLibrosModel::$DB->run($sql, []);
         return $data->fetchAll();
     }
