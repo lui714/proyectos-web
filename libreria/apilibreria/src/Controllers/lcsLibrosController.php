@@ -25,7 +25,6 @@
 
         public function getFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
-
             $precio = $parametros['precio'];
             $editorial = $parametros['editorial'];
 
