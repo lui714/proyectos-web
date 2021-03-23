@@ -40,7 +40,8 @@ class lcsUsuariosModel {
                     values (?, ?, ?, ?, ?, ?)";
             $data = lcsUsuariosModel::$DB->run($sql, $param);
             return "Usuario ". $param[1] . " insertado correctamente ";
-       } catch(Exception $e){
+       } 
+       catch(Exception $e){
           return $e->getMessage();
        }
     }
