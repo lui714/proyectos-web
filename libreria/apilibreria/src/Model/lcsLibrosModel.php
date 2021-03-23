@@ -13,7 +13,8 @@ class lcsLibrosModel {
     }
     public static function getLibrosYCategorias(){
         lcsLibrosModel::conexionDB();
-        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid";
+        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid 
+        where c.nombre_categoria='programacion'";
         $data = lcsLibrosModel::$DB->run($sql, []);
         return $data->fetchAll();
     }
