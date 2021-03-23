@@ -16,7 +16,7 @@ class lcsCategoriasModel {
         return $data->fetchAll();
     }
 
-    public static function lcsgetAll(){
+    public static function getAll(){
         lcsCategoriasModel::conexionDB();
         $sql = "Select * from categorias";
         $data = lcsCategoriasModel::$DB->run($sql, []);

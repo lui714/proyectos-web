@@ -11,7 +11,7 @@ class lcsEditoresModel{
         lcsEditoresModel::$DB = new DB();
     }
     
-    public static function lcsgetEditoresYLibros(){
+    public static function getEditoresYLibros(){
         lcsEditoresModel::conexionDB();
         $sql = "Select * from editores e inner join libros l on e.editorid=l.editorid";
         $data = lcsEditoresModel::$DB->run($sql, []);
@@ -24,7 +24,7 @@ class lcsEditoresModel{
         return $data->fetchALL();
     }
 
-    public static function lcsgetALL(){
+    public static function getALL(){
         lcsEditoresModel::conexionDB();
         $sql = "Select * from editores";
         $data = lcsEditoresModel::$DB->run($sql, []);

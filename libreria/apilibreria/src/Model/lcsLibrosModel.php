@@ -25,7 +25,7 @@ class lcsLibrosModel {
         return $data->fetchAll();
     }
 
-    public static function lcsgetAll(){
+    public static function getAll(){
         lcsLibrosModel::conexionDB();
         $sql = "Select * from libros";
         $data = lcsLibrosModel::$DB->run($sql, []);

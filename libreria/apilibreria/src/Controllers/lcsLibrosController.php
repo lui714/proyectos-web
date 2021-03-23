@@ -16,7 +16,7 @@
                 ->withStatus(200);
         }
         
-        public function lcsnew($request, $response, $args){
+        public function new($request, $response, $args){
             $response->getBody()->write("Insertar un nuevo Libro");
             return $response
                 ->withHeader('Content-Type', 'application/json')
@@ -39,7 +39,7 @@
                 ->withStatus(200); 
         }
         
-        public function lcsgetAll($request, $response, $args){
+        public function getAll($request, $response, $args){
             $libros = lcsLibrosModel::getAll();
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
