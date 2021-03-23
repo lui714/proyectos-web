@@ -26,6 +26,13 @@ class UsuariosModel {
         return $data->fetchAll();
     }
 
+    public static function update($param){
+        UsuariosModel::conexionDB();
+        $sql = "UPDATE usuarios SET nombre = '$param[1]', apellidos = '$param[2]', ciudad = '$param[4]', direccion = '$param[3]', anioNac = $param[5]  where usuarioid = $param[0]";
+        $data = UsuariosModel::$DB->run($sql, $param);
+        return "Usuario cambiado correctamente ";
+    }
+
     public static function new($param){
        try{
             UsuariosModel::conexionDB();
