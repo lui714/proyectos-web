@@ -30,9 +30,9 @@
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
             $direccion = $parametros['direccion'];
-            $anionac = (int)$parametros['anioNac'];
+            $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
-            $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anionac);
+            $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
             $usuarios = lcsUsuariosModel::new($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
