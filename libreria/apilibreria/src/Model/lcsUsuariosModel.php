@@ -9,7 +9,7 @@ class lcsUsuariosModel {
     private static $DB; 
 
     public static function conexionDB(){
-        UsuariosModel::$DB = new DB();
+        lcsUsuariosModel::$DB = new DB();
     }
 
     public static function delete($param){
