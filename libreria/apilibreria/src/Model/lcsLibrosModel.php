@@ -11,6 +11,20 @@ class lcsLibrosModel {
     public static function conexionDB(){
         lcsLibrosModel::$DB = new DB();
     }
+
+    public static function lcsnew($param){
+        try{
+             lcsLibrosModel::conexionDB();
+             $sql = "insert into usuarios (libro_id, nombre_libro, descripcion, categoriaid, editorid, precio, entrega, imagen) 
+                     values (?, ?, ?, ?, ?, ?, ?, ?)";
+             $data = lcsLibrosModel::$DB->run($sql, $param);
+             return " insertado correctamente ";
+        } 
+        catch(Exception $e){
+           return $e->getMessage();
+        }
+     }
+
     public static function lcsgetLibrosYCategorias(){
         lcsLibrosModel::conexionDB();
         $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid 
