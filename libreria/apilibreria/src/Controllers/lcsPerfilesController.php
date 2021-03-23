@@ -33,7 +33,7 @@
 
        
         public function getAll($request, $response, $args){
-            $perfiles = lcsPerfilesController::getALL();
+            $perfiles = lcsPerfilesController::getAll();
             $perfilesJson = json_encode($perfiles);
             $response->getBody()->write($perfilesJson);
             return $response
