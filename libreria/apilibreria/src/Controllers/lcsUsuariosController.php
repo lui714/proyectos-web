@@ -8,13 +8,13 @@
         public function update(Request  $request, Response $response, $args){
             $parametros = $request->getParsedBody();
 
-            $uid = (int)$parametros['usuarioid'];
+            $usuarioid = (int)$parametros['usuarioid'];
             $nombre = $parametros['nombre'];
             $apellidos = $parametros['apellidos'];
             $direccion = $parametros['direccion'];
-            $anionac = (int)$parametros['anioNac'];
+            $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
-            $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anionac);
+            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
             $usuarios = lcsUsuariosModel::update($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
@@ -32,7 +32,7 @@
             $direccion = $parametros['direccion'];
             $anioNac = (int)$parametros['anioNac'];
             $ciudad = $parametros['ciudad'];
-            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $ciudad, $anioNac);
+            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $anioNac, $ciudad);
             $usuarios = lcsUsuariosModel::new($valores);
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
