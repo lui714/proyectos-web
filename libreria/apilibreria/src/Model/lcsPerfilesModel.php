@@ -25,7 +25,7 @@ class lcsPerfilesModel {
     public static function lcsnew($param){
         try{
              lcsPerfilesModel::conexionDB();
-             $sql = "insert into usuarios (perfilid, email, facebook, instagram, foto, rol, userid) 
+             $sql = "insert into perfiles (perfilid, email, facebook, instagram, foto, rol, userid) 
                      values (?, ?, ?, ?, ?, ?, ?)";
              $data = lcsPerfilesModel::$DB->run($sql, $param);
              return "perfil". $param[0] . "insertado correctamente ";
