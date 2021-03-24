@@ -3,20 +3,20 @@ namespace App\Model;
 use App\Config\DB;
 
 
-class lcsDetallesPedidosModel {
+class lcsDetallePedidosModel {
     private static $table = 'detallepedidos';
     private static $DB;
 
     public static function conexionDB(){
-        lcsDetallesPedidosModel::$DB = new DB();
+        lcsDetallePedidosModel::$DB = new DB();
     }
 
     public static function lcsnew($param){
         try{
-             lcsDetallesPedidosModel::conexionDB();
+             lcsDetallePedidosModel::conexionDB();
              $sql = "insert into detallepedidos (CodigoLibro, CodigoUsuario, Cantidad, descuento, fecha) 
                      values (?, ?, ?, ?, ?)";
-             $data = lcsDetallesPedidosModel::$DB->run($sql, $param);
+             $data = lcsDetallePedidosModel::$DB->run($sql, $param);
              return "detalle del pedido insertado correctamente ";
         } 
         catch(Exception $e){
