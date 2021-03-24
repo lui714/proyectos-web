@@ -12,16 +12,16 @@
             $parametros = $request->getParsedBody();
            
             $CodigoLibro = (int)$parametros['CodigoLibro'];
-            $CodigoUsuario = $parametros['CodigoUsuario'];
+            $CodigoUsuario = (int)$parametros['CodigoUsuario'];
             $Cantidad = (int)$parametros['Cantidad'];
             $descuento = $parametros['descuento'];
             $fecha = $parametros['fecha'];
 
-            $valoresParametros = array($CodigoLibro, $CodigoUsuario, $Cantidad, $descuento, $fecha);
+            $valoresParametros = array ($CodigoLibro, $CodigoUsuario, $Cantidad, $descuento, $fecha);
             
-            $detallespedidos = lcsDetallesPedidosModel::lcsnew($valoresParametros);
-            $detallespedidosJson = json_encode($detallespedidos);
-            $response->getBody()->write($detallespedidosJson);
+            $detallepedidos = lcsDetallePedidosModel::lcsnew($valoresParametros);
+            $detallepedidosJson = json_encode($detallepedidos);
+            $response->getBody()->write($detallepedidosJson);
             return $response
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
