@@ -7,19 +7,9 @@
 
     class lcsLibrosController {
 
-        public function lcsLibrosYCategorias($request, $response, $args){
-            $libros = lcsLibrosModel::lcsgetLibrosYCategorias();
-            $librosJson = json_encode($libros);
-            $response->getBody()->write($librosJson);
-            return $response
-                ->withHeader('Content-Type', 'application/json')
-                ->withStatus(200);
-        }
-        
-
         public function lcsFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
-            
+
             $precio = $parametros['precio'];
             $categoria = $parametros['nombre_categoria'];
 
