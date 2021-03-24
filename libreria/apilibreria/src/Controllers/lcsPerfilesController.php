@@ -5,25 +5,22 @@
     use App\Model\lcsPerfilesModel;
 
     class lcsPerfilesController {
-    
-        public function new(Request  $request, Response $response, $args){
-            $response->getBody()->write("Insertar una nueva Categoria");
-            return $response
-                ->withHeader('Content-Type', 'application/json')
-                ->withStatus(200);
-        }
 
         public function lcsnew(Request  $request, Response $response, $args){
+
             $parametros = $request->getParsedBody();
            
-            $usuarioid = (int)$parametros['usuarioid'];
-            $nombre = $parametros['nombre'];
-            $apellidos = $parametros['apellidos'];
-            $direccion = $parametros['direccion'];
-            $anioNac = (int)$parametros['anioNac'];
-            $ciudad = $parametros['ciudad'];
-            $valores = array($usuarioid, $nombre, $apellidos, $direccion, $anioNac, $ciudad);
-            $perfiles = lcsPerfilesModel::lcsnew($valores);
+            $perfilid = (int)$parametros['perfilid'];
+            $email = $parametros['email'];
+            $facebook = $parametros['facebook'];
+            $instagram = $parametros['instagram'];
+            $foto = $parametros['foto'];
+            $rol = $parametros['rol'];
+            $userid = $parametros['userid'];
+
+            $valoresParametros = array($perfilid, $email, $facebook, $instagram, $foto, $rol, $userid);
+            
+            $perfiles = lcsPerfilesModel::lcsnew($valoresParametros);
             $perfilesJson = json_encode($perfiles);
             $response->getBody()->write($perfilesJson);
             return $response

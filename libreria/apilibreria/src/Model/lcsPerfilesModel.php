@@ -26,20 +26,14 @@ class lcsDetallePerfilesModel {
     public static function lcsnew($param){
         try{
              lcsPeriflesModel::conexionDB();
-             $sql = "insert into usuarios (usuarioid, nombre, apellidos, direccion, anioNac, ciudad) 
-                     values (?, ?, ?, ?, ?, ?)";
+             $sql = "insert into usuarios (perfilid, email, facebook, instagram, foto, rol, userid) 
+                     values (?, ?, ?, ?, ?, ?, ?)";
              $data = lcsPerfilesModel::$DB->run($sql, $param);
-             return "perfil insertado correctamente ";
+             return "perfil". $param[0] . "insertado correctamente ";
         } 
         catch(Exception $e){
            return $e->getMessage();
         }
      }
 
-    public static function show($param){
-        lcsDetallePerfilesModel::conexionDB();
-        $sql = 'SELECT * from perfiles';
-        $data = lcsDetallePerfilesModel::$DB->run($sql, $param);
-        return $data->fetch();
-    }
 }

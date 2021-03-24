@@ -15,6 +15,7 @@ require __DIR__. "/../Routes/lcslibros.php";
 require __DIR__. "/../Routes/lcscategorias.php";
 require __DIR__. "/../Routes/lcseditores.php";
 require __DIR__. "/../Routes/lcsusuarios.php";
+require __DIR__. "/../Routes/lcsperfiles.php";
 
 $app->run();
 
