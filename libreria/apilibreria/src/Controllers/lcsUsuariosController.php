@@ -3,6 +3,8 @@
     use Psr\Http\Message\ResponseInterface as Response;
     use Psr\Http\Message\ServerRequestInterface as Request;
     use App\Model\lcsUsuariosModel;
+
+
     class lcsUsuariosController {
 
         public function lcsupdate(Request  $request, Response $response, $args){
@@ -54,8 +56,8 @@
                 ->withStatus(200); 
           }
        
-        public function getAll($request, $response, $args){
-            $usuarios = lcsUsuariosModel::getAll();
+        public function lcsAll($request, $response, $args){
+            $usuarios = lcsUsuariosModel::lcsAll();
             $usuariosJson = json_encode($usuarios);
             $response->getBody()->write($usuariosJson);
             return $response

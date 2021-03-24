@@ -19,7 +19,7 @@ class lcsUsuariosModel {
              return "Usuario ". $param[0] . " borrado correctamente ";
     }
 
-    public static function getAll(){
+    public static function lcsAll(){
         lcsUsuariosModel::conexionDB();
         $sql = "Select * from usuarios";
         $data = lcsUsuariosModel::$DB->run($sql, []);
