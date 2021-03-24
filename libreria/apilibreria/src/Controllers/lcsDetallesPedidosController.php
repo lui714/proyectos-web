@@ -13,11 +13,11 @@
            
             $CodigoLibro = (int)$parametros['CodigoLibro'];
             $CodigoUsuario = $parametros['CodigoUsuario'];
-            $Cantidad = $parametros['Cantidad'];
+            $Cantidad = (int)$parametros['Cantidad'];
             $descuento = $parametros['descuento'];
             $fecha = $parametros['fecha'];
 
-            $valoresParametros = array($CodigoLibro, $CodigoUsuario, $Cantidad, $descuento, $fecha;
+            $valoresParametros = array($CodigoLibro, $CodigoUsuario, $Cantidad, $descuento, $fecha);
             
             $detallespedidos = lcsDetallesPedidosModel::lcsnew($valoresParametros);
             $detallespedidosJson = json_encode($detallespedidos);
