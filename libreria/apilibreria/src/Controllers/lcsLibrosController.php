@@ -7,7 +7,7 @@
 
     class lcsLibrosController {
 
-        public function lcsgetLibrosYCategorias($request, $response, $args){
+        public function lcsLibrosYCategorias($request, $response, $args){
             $libros = lcsLibrosModel::lcsgetLibrosYCategorias();
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
@@ -33,16 +33,13 @@
                 ->withStatus(200); 
         }
         
-        public function getAll($request, $response, $args){
-            $libros = lcsLibrosModel::getAll();
+        public function lcsAll($request, $response, $args){
+            $libros = lcsLibrosModel::lcsAll();
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
-            /*//FUNCION DE PRUEBA /index.php/api/libros
-            $response->getBody()->write("Hello, I'm your LibrosController.php file");
-            return $response;*/
             
         }
     }
