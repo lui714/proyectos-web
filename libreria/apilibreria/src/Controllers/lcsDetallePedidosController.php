@@ -10,9 +10,9 @@
 
             $parametros = $request->getParsedBody();
            
-            $CodigoLibro = $parametros['CodigoLibro'];
-            $CodigoUsuario = $parametros['CodigoUsuario'];
-            $Cantidad = $parametros['Cantidad'];
+            $CodigoLibro = (int)$parametros['CodigoLibro'];
+            $CodigoUsuario = (int)$parametros['CodigoUsuario'];
+            $Cantidad = (int)$parametros['Cantidad'];
             $descuento = $parametros['descuento'];
             $fecha = $parametros['fecha'];
 
