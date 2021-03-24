@@ -1,11 +1,7 @@
 <?php
-# para agrupar las rutas en grupos
-use Slim\Routing\RouteCollectorProxy;
-/*//FUNCION DE PRUEBA /index.php/libros
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;*/
 
-//contendrá los entrypoints (acciones CRUD) de la tabla libros
+use Slim\Routing\RouteCollectorProxy;
+
 $app->group('/api', function(RouteCollectorProxy $group){
     $group->get('/libros', 'App\Controllers\lcsLibrosController:lcsAll');
     $group->post('/libros/lcsnew', 'App\Controllers\lcsLibrosController:lcsnew'); 
@@ -13,14 +9,8 @@ $app->group('/api', function(RouteCollectorProxy $group){
     $group->get('/libros/lcscategorias=programacion&precio=35', 'App\Controllers\lcsLibrosController:lcsLibrosYCategorias');
     $group->post('/libros/compras', 'App\Controllers\lcsLibrosController:lcsgetCompras');
 
-    #  $group->get('/libros/{id}', 'App\Controllers\LibrosController:show');
-});
 
-/*//FUNCION DE PRUEBA /index.php/libros
-$app->get("/libros", function(Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello, I'm your libros.php file");
-    return $response;
-});*/
+});
 
 
 
