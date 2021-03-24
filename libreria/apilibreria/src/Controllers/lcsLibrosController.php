@@ -17,15 +17,15 @@
         }
         
 
-        public function getFilter(Request $request, Response $response, $args){
+        public function lcsFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
+            
             $precio = $parametros['precio'];
-            $editorial = $parametros['editorial'];
+            $categoria = $parametros['nombre_categoria'];
 
-            var_dump($precio);
+            $valoresParametros = array ($precio, $categoria);
 
-            $valoresParametros = array ($precio, $editorial);
-            $libros = lcsLibrosModel::getFilter($valoresParametros);
+            $libros = lcsLibrosModel::lcsFilter($valoresParametros);
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response

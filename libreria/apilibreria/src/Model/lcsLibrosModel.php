@@ -2,8 +2,7 @@
 namespace App\Model;
 use App\Config\DB;
 
-//definimos LibrosModel como una clase estática:
-//no se puede hacer un new, no hay $this, no hay método __contruct()
+
 class lcsLibrosModel {
     private static $table = 'libros';
     private static $DB;
@@ -23,13 +22,12 @@ class lcsLibrosModel {
         catch(Exception $e){
            return $e->getMessage();
         }
-     }
+    }
 
-    public static function lcsLibrosYCategorias(){
+    public static function lcsFilter($param){
         lcsLibrosModel::conexionDB();
-        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid 
-        where c.categoriaid='1' ";
-        $data = lcsLibrosModel::$DB->run($sql, []);
+        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid where l.precio > ? and c.nombre_categoria = ? ";
+        $data = lcsLibrosModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }
 
