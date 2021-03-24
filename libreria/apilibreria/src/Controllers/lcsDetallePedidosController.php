@@ -6,14 +6,13 @@
 
     class lcsDetallePedidosController {
     
-
         public function lcsnew(Request  $request, Response $response, $args){
 
             $parametros = $request->getParsedBody();
            
-            $CodigoLibro = (int)$parametros['CodigoLibro'];
-            $CodigoUsuario = (int)$parametros['CodigoUsuario'];
-            $Cantidad = (int)$parametros['Cantidad'];
+            $CodigoLibro = $parametros['CodigoLibro'];
+            $CodigoUsuario = $parametros['CodigoUsuario'];
+            $Cantidad = $parametros['Cantidad'];
             $descuento = $parametros['descuento'];
             $fecha = $parametros['fecha'];
 
