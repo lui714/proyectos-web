@@ -15,7 +15,7 @@ class lcsPerfilesModel {
         return $data->fetchAll();
     }
 
-    public static function getAll(){
+    public static function lcsAll(){
         lcsPerfilesModel::conexionDB();
         $sql = "Select * from perfiles";
         $data = lcsPerfilesModel::$DB->run($sql, []);
@@ -28,7 +28,7 @@ class lcsPerfilesModel {
              $sql = "insert into perfiles (perfilid, email, facebook, instagram, foto, rol, userid) 
                      values (?, ?, ?, ?, ?, ?, ?)";
              $data = lcsPerfilesModel::$DB->run($sql, $param);
-             return "perfil". $param[0] . "insertado correctamente ";
+             return "perfil" . $param[0] . "insertado correctamente ";
         } 
         catch(Exception $e){
            return $e->getMessage();

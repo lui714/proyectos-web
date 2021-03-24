@@ -29,8 +29,8 @@
         }
 
        
-        public function getAll($request, $response, $args){
-            $perfiles = lcsPerfilesController::getAll();
+        public function lcsAll($request, $response, $args){
+            $perfiles = lcsPerfilesModel::lcsAll();
             $perfilesJson = json_encode($perfiles);
             $response->getBody()->write($perfilesJson);
             return $response
