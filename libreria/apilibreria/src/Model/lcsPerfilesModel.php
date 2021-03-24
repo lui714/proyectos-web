@@ -2,17 +2,16 @@
 namespace App\Model;
 use App\Config\DB;
 
-//definimos LibrosModel como una clase estática:
-//no se puede hacer un new, no hay $this, no hay método __contruct()
-class lcsDetallePerfilesModel {
+
+class lcsPerfilesModel {
     private static $table = 'perfiles';
     private static $DB;
 
     public static function conexionDB(){
-        lcsDetallePerfilesModel::$DB = new DB();
+        lcsPerfilesModel::$DB = new DB();
     }
     public static function getFilter($sql, $param){
-        $data = lcsDetallePerfilesModel::$DB->run($sql, $param);
+        $data = lcsPerfilesModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }
 
