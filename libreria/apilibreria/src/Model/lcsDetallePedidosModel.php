@@ -17,7 +17,7 @@ class lcsDetallePedidosModel {
              $sql = "insert into detallepedidos (CodigoLibro, CodigoUsuario, Cantidad, descuento, fecha) 
                      values (?, ?, ?, ?, ?)";
              $data = lcsDetallePedidosModel::$DB->run($sql, $param);
-             return "detalle del pedido insertado correctamente ";
+             return "Compra de ". $param[2] . " libros insertada correctamente ";
         } 
         catch(Exception $e){
            return $e->getMessage();
