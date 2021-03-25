@@ -7,15 +7,17 @@
 
     class lcsLibrosController {
 
-        public function lcsFilter(Request $request, Response $response, $args){
+        public function lcsupdate(Request $request, Response $response, $args){
+
             $parametros = $request->getQueryParams();
 
+            $categoriaid = $parametros['categoriaid'];
             $precio = $parametros['precio'];
-            $categoria = $parametros['nombre_categoria'];
+            $stock = $parametros['stock'];
 
-            $valoresParametros = array ($precio, $categoria);
+            $valoresParametros = array ($categoriaid, $precio, $stock);
 
-            $libros = lcsLibrosModel::lcsFilter($valoresParametros);
+            $libros = lcsLibrosModel::lcsupdate($valoresParametros);
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
             return $response

@@ -24,9 +24,10 @@ class lcsLibrosModel {
         }
     }
 
-    public static function lcsFilter($param){
+    public static function lcsupdate($param){
         lcsLibrosModel::conexionDB();
-        $sql = "Select * from libros l inner join categorias c on l.categoriaid=c.categoriaid where l.precio > ? and c.nombre_categoria = ? ";
+        $sql = "UPDATE libros SET precio = precio+'$param[1]', stock = stock+'$param[2]' 
+                WHERE categoriaid = '$param[0]'";
         $data = lcsLibrosModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }
