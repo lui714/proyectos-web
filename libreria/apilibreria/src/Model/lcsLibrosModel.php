@@ -26,8 +26,8 @@ class lcsLibrosModel {
 
     public static function lcsupdate($param){
         lcsLibrosModel::conexionDB();
-        $sql = "UPDATE libros SET precio = precio+'$param[1]', stock = stock+'$param[2]' 
-                WHERE categoriaid = '$param[0]'";
+        $sql = "UPDATE libros set precio = precio+'$param[1]', stock = stock+'$param[2]' 
+                where categoriaid = '$param[0]'";
         $data = lcsLibrosModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }
