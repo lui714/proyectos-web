@@ -26,6 +26,28 @@
                 ->withStatus(200);
         }
 
+        public function lcsfilter(Request  $request, Response $response, $args){
+
+            $parametros = $request->getQueryParams();
+           
+            $idusuario = (int)$parametros['idusuario'];
+            $idlibro = (int)$parametros['idlibro'];
+            $nombrelibro = (int)$parametros['nombrelibro'];
+            $precio = $parametros['precio'];
+            $cantidad = $parametros['cantidad'];
+            $descuento = $parametros['descuento'];
+            $ptotal = $parametros['ptotal'];
+
+            $valoresParametros = array ($idusuario, $idlibro, $nombrelibro, $precio, $cantidad, $descuento, $ptotal);
+            
+            $detallepedidos = lcsDetallePedidosModel::lcsfilter($valoresParametros);
+            $detallepedidosJson = json_encode($detallepedidos);
+            $response->getBody()->write($detallepedidosJson);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(200);
+        }
+
         public function getAll($request, $response, $args){
             $detallespedidos = lcsDetallesPedidosModel::getALL();
             $detallespedidosJson = json_encode($detallespedidos);

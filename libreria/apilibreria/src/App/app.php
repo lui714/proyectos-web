@@ -19,5 +19,3 @@ require __DIR__. "/../Routes/lcsperfiles.php";
 require __DIR__. "/../Routes/lcsdetallepedidos.php";
 
 $app->run();
-
-

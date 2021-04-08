@@ -25,25 +25,12 @@ class lcsLibrosModel {
     }
 
     public static function lcsupdate($param){
-        try{
-             lcsLibrosModel::conexionDB();
-             $sql = "UPDATE libros set precio = precio+'$param[1]', stock = stock+'$param[2]' 
-                    where categoriaid = '$param[0]'";
-             $data = lcsLibrosModel::$DB->run($sql, $param);
-             return " actualizado correctamente correctamente ";
-        } 
-        catch(Exception $e){
-           return $e->getMessage();
-        }
-    }
-
-    /*public static function lcsupdate($param){
         lcsLibrosModel::conexionDB();
         $sql = "UPDATE libros set precio = precio+'$param[1]', stock = stock+'$param[2]' 
                 where categoriaid = '$param[0]'";
         $data = lcsLibrosModel::$DB->run($sql, $param);
-        return $data->fetchAll();
-    }*/
+        return " actualizado correctamente ";
+    }
 
     public static function lcsAll(){
         lcsLibrosModel::conexionDB();
