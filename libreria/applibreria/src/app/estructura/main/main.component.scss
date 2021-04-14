@@ -1,0 +1,10 @@
+main{
+    background-color: blue;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+main > *{
+    border: 1px solid white;
+}

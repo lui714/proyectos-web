@@ -1,0 +1,10 @@
+header{
+    background-color: red;
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+}
+
+header > *{
+    border: 1px solid black;
+}
