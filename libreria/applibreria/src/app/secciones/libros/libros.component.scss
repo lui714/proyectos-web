@@ -1,0 +1,14 @@
+@media only screen and (min-width: 600px) {
+    section {
+      background-color: none;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 50px 50px auto;
+      grid-template-columns: 15% 65% 18%;
+      grid-gap: 5px;
+      grid-template-areas:
+          "sec sec sec"
+          "bread  bread bread"
+          "menu  cuerpo aside"
+    }
+  }

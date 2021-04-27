@@ -1,0 +1,12 @@
+
+@media only screen and (min-width: 600px) {
+    div {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 80% 20% ;
+      align-items: center;
+      justify-items: center;
+    }
+  
+  
+  }
