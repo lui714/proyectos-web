@@ -1,0 +1,12 @@
+footer {
+  background-color: rgba(102, 51, 153, .3);
+  height: 150px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 2px;
+    padding: 5px;
+}
+
+footer > * {
+    border: 2px solid black;
+}

@@ -1,5 +1,3 @@
-#urls amigables y no anteponer el index.php
-
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

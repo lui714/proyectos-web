@@ -1,0 +1,67 @@
+
+
+
+<div class="menu">
+  <div>
+    <label for="customRange3" class="form-label">Precio = {{ precio }}</label>
+    <input type="range" [(ngModel)]="precio"
+    class="form-range"  min="0" max="50" step="0.5" id="customRange3">
+  </div>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Categorias
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <div class="form-check" *ngFor="let categoria of respuesta">
+              <input  class="form-check-input" (click)="selectCat(categoria.categoriaid)"
+                  type="checkbox" value="{{categoria.categoriaid}}">
+              <a [routerLink]="['categoria',categoria.categoriaid]">
+                  {{categoria.nombre_categoria}}
+              </a>
+
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <a [routerLink]="[{ outlets: { cuerpo:['listar']} }]">Todos</a>
+              </label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Editores
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="form-check" *ngFor="let editor of respEditores">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                {{ editor.nombre_editorial }}
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <a [routerLink]="[{ outlets: { cuerpo:['listar']} }]">Todos</a>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-link" (click)="filtrar()">Aplicar</button>
+  <button type="button" class="btn btn-link" (click)="filtrar()">Aplicar</button>
+
+
+</div>
+

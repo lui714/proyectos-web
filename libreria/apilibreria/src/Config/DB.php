@@ -16,9 +16,10 @@ class DB {
         ";port=".config::DB_PORT.
         ";charset=".config::DB_CHARSET;
         $this->pdo = new PDO($dsn, config::DB_USER, config::DB_PASS, $opciones);
-    }
+}
 
     public function run($sql, $args = []){
+      
         // Ejecutará las consulta $sql con parámetros que le pasemos
         //sql --> select * from articulos where id = ? and precio > ?
         //En args meteremos variables del where de una consulta --> $args = [10, 56.7]
@@ -26,6 +27,7 @@ class DB {
             $data = $this->pdo->query($sql);
             return $data;
         }
+       
         //manda argumentos --> preparamos la sentencia
         //hace una sustitución de variables
         $sentencia = $this->pdo->prepare($sql);
