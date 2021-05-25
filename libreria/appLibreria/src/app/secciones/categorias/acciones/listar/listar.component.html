@@ -1,0 +1,14 @@
+<section>
+  <article *ngFor="let libro of respuesta">
+    <figure>
+      <img [src] = "libro.imagen | viewImage">
+    </figure>
+    <h3>{{ libro.nombre_libro | lowercase }}</h3>
+    <div class="datos">
+        <span>{{ libro.nombre_categoria}}</span>/
+        <span>{{ libro.nombre_editorial}} </span>
+    </div>
+    <p class="precio">{{ libro.precio }}</p>
+    <p class="descripcion"> {{ libro.descripcion | truncate: 100 }} </p>
+  </article>
+</section>
